@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolProject.Shared\SchoolProject.Shared.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Resource Include="Assets\Fonts\OpenSans\OpenSans-Bold.ttf" />
+    <Resource Include="Assets\Fonts\OpenSans\OpenSans-BoldItalic.ttf" />
+    <Resource Include="Assets\Fonts\OpenSans\OpenSans-ExtraBold.ttf" />
+    <Resource Include="Assets\Fonts\OpenSans\OpenSans-ExtraBoldItalic.ttf" />
+    <Resource Include="Assets\Fonts\OpenSans\OpenSans-Italic.ttf" />
+    <Resource Include="Assets\Fonts\OpenSans\OpenSans-Light.ttf" />
+    <Resource Include="Assets\Fonts\OpenSans\OpenSans-LightItalic.ttf" />
+    <Resource Include="Assets\Fonts\OpenSans\OpenSans-Regular.ttf" />
+    <Resource Include="Assets\Fonts\OpenSans\OpenSans-Semibold.ttf" />
+    <Resource Include="Assets\Fonts\OpenSans\OpenSans-SemiboldItalic.ttf" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Network\" />
+  </ItemGroup>
+
+</Project>
