@@ -1,5 +1,6 @@
 ﻿using SchoolProject.Client.Models.Shop;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,7 +19,7 @@ namespace SchoolProject.Client.Views.UserControls
     /// Interaction logic for CategoryList.xaml
     /// </summary>
     
-    using ProductDictionary = Dictionary<uint, ShopProduct>;
+    using ProductDictionary = ConcurrentDictionary<uint, ShopProduct>;
 
     public partial class CategoryList : UserControl
     {

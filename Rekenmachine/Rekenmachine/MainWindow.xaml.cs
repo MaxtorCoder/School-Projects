@@ -25,12 +25,21 @@ namespace Rekenmachine
         private string calcOperator = string.Empty;
 
         private int digitIndex = 0;
-        private int operatorIndex = 0;
         private bool hasResult = false;
+        private bool isTrainer = false;
+
+        private int Score = 0;
+        private int answer = 0;
+
+        private Random R1, R2, Operator;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            R1 = new Random();
+            R2 = new Random();
+            Operator = new Random();
 
             Btn0.Click += (o, e) => AddDigit("0");
             Btn1.Click += (o, e) => AddDigit("1");
@@ -108,7 +117,82 @@ namespace Rekenmachine
                 calculations[i] = string.Empty;
 
             digitIndex = 0;
-            operatorIndex = 0;
+        }
+
+        private void BtnRekenTrainer_Click(object sender, RoutedEventArgs e)
+        {
+            if (isTrainer)
+            {
+                BtnRekenTrainer.Content = "Reken Trainer";
+                isTrainer = false;
+
+                RekenMachine.Visibility = Visibility.Visible;
+                Trainer.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                LblScore.Content = 0;
+
+                BtnRekenTrainer.Content = "Rekenmachine";
+                isTrainer = true;
+
+                RekenMachine.Visibility = Visibility.Hidden;
+                Trainer.Visibility = Visibility.Visible;
+
+                Generate();
+            }
+        }
+
+        private void Generate()
+        {
+            var sum1 = R1.Next(0, 100).ToString();
+            var sum2 = R2.Next(0, 100).ToString();
+
+            LblSum1.Content = sum1;
+            LblSum2.Content = sum2;
+
+            var _operator = Operator.Next(0, 2);
+            switch (_operator)
+            {
+                case 0:
+                    LblOperator.Content = "+";
+                    break;
+                case 1:
+                    LblOperator.Content = "-";
+                    break;
+                case 2:
+                    LblOperator.Content = "*";
+                    break;
+                default:
+                    break;
+            }
+
+            var sumString = $"{sum1}{LblOperator.Content}{sum2}";
+            answer = int.Parse(new DataTable().Compute(sumString, null).ToString());
+        }
+
+        private void SubmitAnswer_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(TxtBoxAnswer.Text, out int inputAnswer))
+            {
+                if (inputAnswer == answer)
+                {
+                    UpdateScore();
+
+                    LblFeedback.Content = "Correct!";
+                    TxtBoxAnswer.Text = "";
+
+                    Generate();
+                }
+                else
+                    LblFeedback.Content = "Wrong!";
+            }
+        }
+
+        private void UpdateScore()
+        {
+            Score++;
+            LblScore.Content = Score;
         }
     }
 }

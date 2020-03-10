@@ -7,32 +7,45 @@
         mc:Ignorable="d" ResizeMode="NoResize"
         Title="Calculator" Height="470" Width="465">
     <Grid>
-        <Canvas Margin="0,111,0,0">
-            <Grid>
-                <Button x:Name="Btn7" Width="105" Height="50" Content="7" Margin="7,41,-6,-41"/>
-                <Button x:Name="Btn8" Width="105" Height="50" Content="8" Margin="117,41,-116,-41"/>
-                <Button x:Name="Btn9" Width="105" Height="50" Content="9" Margin="227,41,-226,-41"/>
+        <Button x:Name="BtnRekenTrainer" Click="BtnRekenTrainer_Click" Content="Reken Trainer" Margin="9,356,225,25"/>
+        <Canvas x:Name="RekenMachine" Visibility="Visible">
+            <TextBox x:Name="TotalBox" TextWrapping="Wrap" Width="435" Height="30" IsReadOnly="True" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Canvas.Left="7" Canvas.Top="10"/>
+            <TextBox x:Name="ResultBox" TextWrapping="Wrap" Width="435" Height="91" IsReadOnly="True" FontSize="25" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Canvas.Left="7" Canvas.Top="39"/>
 
-                <Button x:Name="Btn4" Width="105" Height="50" Content="4" Margin="7,96,-6,-96"/>
-                <Button x:Name="Btn5" Width="105" Height="50" Content="5" Margin="117,96,-116,-96"/>
-                <Button x:Name="Btn6" Width="105" Height="50" Content="6" Margin="227,96,-226,-96"/>
+            <Button x:Name="Btn7" Width="105" Height="50" Content="7" Canvas.Left="9" Canvas.Top="136"/>
+            <Button x:Name="Btn8" Width="105" Height="50" Content="8" Canvas.Left="119" Canvas.Top="136"/>
+            <Button x:Name="Btn9" Width="105" Height="50" Content="9" Canvas.Left="229" Canvas.Top="136"/>
 
-                <Button x:Name="Btn1" Width="105" Height="50" Content="1" Margin="7,151,-6,-151"/>
-                <Button x:Name="Btn2" Width="105" Height="50" Content="2" Margin="117,151,-116,-151"/>
-                <Button x:Name="Btn3" Width="105" Height="50" Content="3" Margin="227,151,-226,-151"/>
+            <Button x:Name="Btn4" Width="105" Height="50" Content="4" Canvas.Left="9" Canvas.Top="191"/>
+            <Button x:Name="Btn5" Width="105" Height="50" Content="5" Canvas.Left="119" Canvas.Top="191"/>
+            <Button x:Name="Btn6" Width="105" Height="50" Content="6" Canvas.Left="229" Canvas.Top="191"/>
 
-                <Button x:Name="Btn0" Width="105" Height="50" Content="0" Margin="117,206,-116,-206"/>
-                <Button x:Name="BtnComma" Width="105" Height="50" Content="." Margin="227,206,-226,-206"/>
-                <Button x:Name="BtnC" Width="105" Height="50" Content="C" Margin="7,206,-6,-206"/>
+            <Button x:Name="Btn1" Width="105" Height="50" Content="1" Canvas.Left="9" Canvas.Top="246"/>
+            <Button x:Name="Btn2" Width="105" Height="50" Content="2" Canvas.Left="119" Canvas.Top="246"/>
+            <Button x:Name="Btn3" Width="105" Height="50" Content="3" Canvas.Left="229" Canvas.Top="246"/>
 
-                <Button x:Name="BtnPlus" Width="105" Height="50" Content="+" Margin="337,41,-336,-41"/>
-                <Button x:Name="BtnMin" Width="105" Height="50" Content="-" Margin="337,96,-336,-96"/>
-                <Button x:Name="BtnDivide" Width="105" Height="50" Content="/" Margin="337,151,-336,-151"/>
-                <Button x:Name="BtnMultiplication" Width="105" Height="50" Content="X" Margin="337,206,-336,-206"/>
-                <Button x:Name="BtnResult" Width="215" Height="50" Content="=" Margin="227,261,-336,-261"/>
-            </Grid>
+            <Button x:Name="Btn0" Width="105" Height="50" Content="0" Canvas.Left="119" Canvas.Top="301"/>
+            <Button x:Name="BtnComma" Width="105" Height="50" Content="." Canvas.Left="9" Canvas.Top="301"/>
+            <Button x:Name="BtnC" Width="106" Height="50" Content="C" Canvas.Left="228" Canvas.Top="301"/>
+
+            <Button x:Name="BtnPlus" Width="105" Height="50" Content="+" Canvas.Left="337" Canvas.Top="136"/>
+            <Button x:Name="BtnMin" Width="105" Height="50" Content="-" Canvas.Left="337" Canvas.Top="191"/>
+            <Button x:Name="BtnDivide" Width="105" Height="50" Content="/" Canvas.Left="337" Canvas.Top="246"/>
+            <Button x:Name="BtnMultiplication" Width="105" Height="50" Content="X" Canvas.Left="337" Canvas.Top="301"/>
+            <Button x:Name="BtnResult" Width="214" Height="50" Content="=" Canvas.Left="228" Canvas.Top="356"/>
         </Canvas>
-        <TextBox x:Name="TotalBox" HorizontalAlignment="Left" Margin="7,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="435" Height="30" IsReadOnly="True" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="ResultBox" HorizontalAlignment="Left" Margin="7,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="435" Height="91" IsReadOnly="True" FontSize="25" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <Canvas x:Name="Trainer" Visibility="Hidden">
+            <Label Content="Score: " Canvas.Left="19" Canvas.Top="24" FontSize="16"/>
+            <Label x:Name="LblScore" Content="0" FontSize="16" Canvas.Left="81" Canvas.Top="25" Width="45"/>
+            <Label x:Name="LblSum1" Content="00" FontSize="20" Canvas.Left="20" Canvas.Top="67"/>
+            <Label x:Name="LblOperator" Content="+" FontSize="20" Canvas.Left="76" Canvas.Top="67"/>
+            <Label x:Name="LblSum2" Content="00" FontSize="20" Canvas.Left="127" Canvas.Top="67"/>
+
+            <Label Content="=" FontSize="20" Canvas.Left="193" Canvas.Top="67"/>
+            <TextBox x:Name="TxtBoxAnswer" Canvas.Left="244" Canvas.Top="71" Text="" TextWrapping="Wrap" Width="120" FontSize="20"/>
+            <Button x:Name="SubmitAnswer" Click="SubmitAnswer_Click" Content="Submit" Canvas.Left="244" Canvas.Top="119" Width="120" Height="29"/>
+
+            <Label x:Name="LblFeedback" Content="" FontSize="20" Canvas.Left="20" Canvas.Top="115" Width="197"/>
+        </Canvas>
     </Grid>
 </Window>
