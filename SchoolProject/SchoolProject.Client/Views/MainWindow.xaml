@@ -14,8 +14,7 @@
     
     <Grid>
         <Canvas Background="#FF1E1E1E">
-            <UserControl Content="{Binding CategoryContent}" x:Name="CategoryList" Width="175" Height="635" Background="#FF353332" Canvas.Left="-1"/>
-            <UserControl Content="{Binding ProductContent}" x:Name="Products" Width="825" Height="635" Background="#FF1E1E1E" Canvas.Left="175"/>
+            <UserControl Content="{Binding CategoryContent}" x:Name="CategoryList" Width="1000" Height="635"/>
         </Canvas>
         <Canvas Margin="0,0,0,583">
             <Rectangle x:Name="TopBar" Height="34" Width="1000" Margin="0,1,0,584" Fill="#00000000"/>

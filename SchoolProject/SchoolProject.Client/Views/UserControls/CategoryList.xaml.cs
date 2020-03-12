@@ -30,6 +30,7 @@ namespace SchoolProject.Client.Views.UserControls
             InitializeComponent();
         }
 
+        public ShopCategory GetShopCategory(uint categoryId) => Categories[categoryId];
         public ProductDictionary GetProducts(uint categoryId) => Categories[categoryId].GetProducts();
         public void AddProductCategory(ShopCategory category)
         {
@@ -41,6 +42,10 @@ namespace SchoolProject.Client.Views.UserControls
         {
             var selectedCategory = (List.SelectedItem as ShopCategory) ?? (List.Items[0] as ShopCategory);
             Console.WriteLine($"Selected : {selectedCategory?.Title}");
+
+            ProductView.Items.Clear();
+            foreach (var product in selectedCategory.GetProducts().Values)
+                ProductView.Items.Add(product);
         }
     }
 }

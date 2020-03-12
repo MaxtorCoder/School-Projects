@@ -32,6 +32,7 @@
                                  x:Name="textSource" 
                                  Background="Transparent" 
                                  Panel.ZIndex="2" BorderThickness="0"
+                                 SelectionBrush="#FFC5C5C5"
                                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFC5C5C5"/>
                         <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1" BorderThickness="0">
                             <TextBox.Style>
@@ -39,7 +40,8 @@
                                     <Setter Property="Foreground" Value="Transparent"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
-                                            <Setter Property="Foreground" Value="Gray"/>
+                                            <Setter Property="Foreground" Value="#FFC5C5C5"/>
+                                            <Setter Property="SelectionBrush" Value="#FFC5C5C5"/>
                                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
                                             <Setter Property="VerticalContentAlignment" Value="Center"/>
                                         </DataTrigger>
