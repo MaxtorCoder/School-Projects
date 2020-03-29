@@ -1,6 +1,7 @@
-﻿using SchoolProject.Client.Database;
-using SchoolProject.Client.Views.UserControls;
+﻿using System;
+using System.Threading;
 using System.Windows;
+using SchoolProject.Client.Database;
 
 namespace SchoolProject.Client.Views
 {
@@ -9,8 +10,6 @@ namespace SchoolProject.Client.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        private CategoryList categoryList = new CategoryList();
-
         public MainWindow()
         {
             PrepareDatabase();
@@ -20,23 +19,11 @@ namespace SchoolProject.Client.Views
             TopBar.MouseDown += (o, e)  => DragMove();
             CloseBtn.Click += (o, e)    => Close();
             MinBtn.Click += (o, e)      => WindowState = WindowState.Minimized;
-
-            CategoryList.Content = categoryList;
-            categoryList.List.SelectedIndex = 0;
         }
 
         private void PrepareDatabase()
         {
-            var database = new DatabaseHandler();
 
-            foreach (var category in database.GetShopCategories())
-                categoryList.AddProductCategory(category);
-
-            foreach (var product in database.GetShopProducts())
-            {
-                var categoryId = database.GetCategoryForProduct(product.Id);
-                categoryList.GetShopCategory(categoryId).AddProduct(product);
-            }
         }
     }
 }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" WindowStyle="None" Title="Home" Height="635" Width="1000" ResizeMode="NoResize">
+        mc:Ignorable="d" WindowStyle="None" Title="Home" Height="700" Width="1200" ResizeMode="NoResize">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -11,15 +11,17 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    
+
     <Grid>
         <Canvas Background="#FF1E1E1E">
-            <UserControl Content="{Binding CategoryContent}" x:Name="CategoryList" Width="1000" Height="635"/>
+            <Canvas>
+                
+            </Canvas>
         </Canvas>
-        <Canvas Margin="0,0,0,583">
-            <Rectangle x:Name="TopBar" Height="34" Width="1000" Margin="0,1,0,584" Fill="#00000000"/>
-            <Button x:Name="CloseBtn" Height="10" Style="{DynamicResource ButtonHoverBorder}" Width="10" Canvas.Top="12" Canvas.Left="12" Background="#FFFF605C"/>
-            <Button x:Name="MinBtn" Height="10" Style="{DynamicResource ButtonHoverBorder}" Width="10" Canvas.Top="12" Canvas.Left="30" Background="#FFFFBD44"/>
+        <Canvas Margin="0,0,0,646">
+            <Rectangle x:Name="TopBar" Height="34" Width="1200" Margin="0,1,0,584" Fill="#00000000" Canvas.Top="1"/>
+            <Button x:Name="CloseBtn" Height="10" Style="{DynamicResource ButtonHoverBorder}" Width="10" Canvas.Top="14" Canvas.Left="1178" Background="#FFFF605C"/>
+            <Button x:Name="MinBtn" Height="10" Style="{DynamicResource ButtonHoverBorder}" Width="10" Canvas.Top="14" Canvas.Left="1156" Background="#FFFFBD44"/>
         </Canvas>
     </Grid>
 </Window>
