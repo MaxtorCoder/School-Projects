@@ -41,7 +41,6 @@ namespace RomanNumerals.GUI
 
         private void RomanInput_TextChanged(object sender, EventArgs e)
         {
-            RomanInput.Text = RomanInput.Text.ToUpper();
             if (RomanInput.Text == string.Empty || RomanInput.Text == "")
                 return;
 
